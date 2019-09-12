@@ -36,5 +36,38 @@ $text: #dcddde;
     display: flex;
     flex-direction: column;
     padding: 2%;
+
+    hr {
+      border-top: thin solid #DDD;
+      border-bottom: none;
+    }
+
+    .messageBox {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      background: $bg-light;
+
+      textarea {
+        background: inherit;
+        width: calc(100% - 20px);
+        resize: none;
+        border: none;
+        padding: 10px ;
+        font-size: 1rem;
+        line-height: 1.25rem;
+        color: $text;
+        outline: 0;
+        max-height: 150px;
+        min-height: 20px;
+        height: auto;
+        border-right: thin solid black;
+      }
+
+      div {
+        padding: 10px 10px 6px 10px;
+      }
+    }
   }
 }
