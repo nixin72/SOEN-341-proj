@@ -42,6 +42,28 @@ $text: #dcddde;
       border-bottom: none;
     }
 
+    .messages {
+      height: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      .message {
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+
+        .time {
+          color: $text-muted;
+          font-size: 10pt;
+        }
+
+        div { padding-right: 5px; }
+        .sender { color: #fff }
+        .body { color: #dcddde; }
+      }
+    }
+
     .messageBox {
       display: flex;
       align-items: center;
