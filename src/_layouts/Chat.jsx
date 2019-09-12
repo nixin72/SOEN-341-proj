@@ -5,7 +5,9 @@ import MessageBox from './MessageBox';
 export default function Chat() {
   return (
     <div className="chat">
-      <Messages />
+      <div id="messageArea">
+        <Messages />
+      </div>
       <div>
         <hr />
       </div>
