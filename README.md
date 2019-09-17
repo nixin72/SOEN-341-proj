@@ -68,3 +68,11 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Project Goal
+
+Creating a messaging system similar to Slack and Discord, consisting of different channels where users are able to create, join and send different messages to. The messages are stored by the project so that the users can still access previously sent messages.
+
+### User Stories
+
+3 stories to be completed by the end of sprint 1 for "Creating Channels", "Joining Channels" and "Sending Messages".
