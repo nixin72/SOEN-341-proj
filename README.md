@@ -68,3 +68,12 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+### User Stories
+User Story for Creating Channels:
+	User can click on the 'Create New Channel" button in top of the Sidebar
+	A popup appears asking what the New channel should be called
+	after entering the channelName a new button appears in the Sidebar
+	when pressed opens up the newly created channel with a seperate chat than the general channel
+	
