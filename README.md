@@ -1,5 +1,9 @@
 # SOEN-341-proj
 
+Project members: Antoine Turcotte (AntoTurc), Ash Trudeau (A-Trudeau), Ewan McNeil (EwanMcNeil) and Philippe Dumaresq (phdumaresq)
+
+The goal of this project is to create a messaging app similar to Slack or Discord, where users are able to message each other in different channels. They will be able to create new channels as well as join pre-existing channels.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
