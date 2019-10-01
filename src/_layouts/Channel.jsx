@@ -23,4 +23,4 @@ function click(){
  //when I add {alert("joining Channel")} it alerts after creation
 	 ///Fixed that issue^
 
-//now click will run the neessicary feautres to update the chat
+//now click will run the necessary features to update the chat
