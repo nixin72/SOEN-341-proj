@@ -2,7 +2,11 @@
 
 Project members: Antoine Turcotte (AntoTurc), Ash Trudeau (A-Trudeau), Ewan McNeil (EwanMcNeil) and Philip Dumaresq (phdumaresq)
 
-The goal of this project is to create a messaging app similar to Slack or Discord, where users are able to message each other in different channels. They will be able to create new channels as well as join pre-existing channels.
+The goal of this project is to create a messaging app similar to Slack or Discord, where users are able to message each other in different channels. They will be able to create new channels as well as join pre-existing channels. New features will gradually be implemented every few weeks to finally produce a robust and interactive application that allow interesting and useful tools based around text-based communication.
+
+## Language 
+The application will be built using the React framework, which is a combination of HTML and Javascript.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
