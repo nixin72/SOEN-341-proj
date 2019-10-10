@@ -7,6 +7,9 @@ The goal of this project is to create a messaging app similar to Slack or Discor
 ## Language 
 The application will be built using the React framework, which is a combination of HTML and Javascript.
 
+## Testing
+The testing for this app will be done through github actions instead of TRAVIS CI with approval of Dr. Peter Chen.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
