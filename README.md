@@ -47,6 +47,11 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+##Project Testing with Github Actions
+This project will be tested with an alterative to TravisCI called Github Actions. Github actions is seemlessly integrated already into the github interface it is designed to automate github workflows. It offers very similar tools to TravisCI such as Matrix builds allowing concurrent jobs, Node.js support, and the ability to run in different containier/build environments including virtual machines.
+
+for further reading on this tool go to https://github.com/actions
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
