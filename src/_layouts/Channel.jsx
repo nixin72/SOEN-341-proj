@@ -7,7 +7,7 @@ export default function Channel(input) {
 	this.name = input;
   return (
     <div className="Channel">
-	  <button onClick = {click} >{this.name}</button>  
+	  <button onClick={() => {click(this.name)}} >{this.name}</button>
     </div>
   )
 }
