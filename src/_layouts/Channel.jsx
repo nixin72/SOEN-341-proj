@@ -1,26 +1,34 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-export default function Channel(input) {		//maybe should be props in the input
+//channel creation function
+//object created by "newChannel.js
+export default function Channel(input) {		
 	this.name = input;
   return (
     <div className="Channel">
-     
-	  
-	  <button onClick = {click} >{this.name}</button>
-	  
+	  <button onClick = {click} >{this.name}</button>  
     </div>
   )
 }
 
-
+//onclick function for handling new button
 function click(){
 	alert("joining channel" );
-	
-	
+	returnChat();	
 }
 
 
- //when I add {alert("joining Channel")} it alerts after creation
-	 ///Fixed that issue^
+//this function refreshes the chat 
+function returnChat(){
 
-//now click will run the necessary features to update the chat
+ReactDOM.render(
+<div className="chat">
+</div>,
+document.getElementById('messageArea')
+)
+  
+}
+
+
+
