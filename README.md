@@ -7,6 +7,9 @@ The goal of this project is to create a messaging app similar to Slack or Discor
 ## Language 
 The application will be built using the React framework, which is a combination of HTML and Javascript.
 
+## Testing
+The testing for this app will be done through github actions instead of TRAVIS CI with approval of Dr. Peter Chen.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -47,6 +50,11 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Project Testing with Github Actions
+This project will be tested with an alterative to TravisCI called Github Actions. Github actions is seemlessly integrated already into the github interface it is designed to automate github workflows. It offers very similar tools to TravisCI such as Matrix builds allowing concurrent jobs, Node.js support, and the ability to run in different containier/build environments including virtual machines.
+
+for further reading on this tool go to https://github.com/actions
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
@@ -76,3 +84,11 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Project Goal
+
+Creating a messaging system similar to Slack and Discord, consisting of different channels where users are able to create, join and send different messages to. The messages are stored by the project so that the users can still access previously sent messages.
+
+### User Stories
+
+3 stories to be completed by the end of sprint 1 for "Creating Channels", "Joining Channels" and "Sending Messages".
