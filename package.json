@@ -11,14 +11,15 @@
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
     "socket.io": "^2.3.0",
+    "supertest": "^4.0.2",
     "uws": "^100.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "server": "node-env-run server --exec nodemon",
-    "dev": "run-p server start",
+    "server": "node server --exec nodemon",
+    "dev": "npx run-p server start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest --runInBand --forceExit",
     "doc": "npx oas generate swaggerBase.json > swagger.json",
     "eject": "react-scripts eject"
   },
