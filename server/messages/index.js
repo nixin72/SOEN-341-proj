@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const fs = require("fs");
 
 /**
  * @oas [get] /messages Get all messages for the channel
@@ -27,6 +28,10 @@ router.post("/", async (req, res) => {
     sender: msg.sender,
     body: msg.body
   };
+
+  const messages = require("../db/messages.json");
+  messages[msg.channel][msg.timestamp] = { sender: msg.sender, body: msg.body };
+  fs.writeFileSync("server/db/messages.json", JSON.stringify(messages));
 
   res.send("success");
 });
