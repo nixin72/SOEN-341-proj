@@ -22,4 +22,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/messages', require('./messages'));
-app.listen(3001, () => console.log('Express server is running on localhost:3001'));
+app.listen(process.env.MODE === "test" ? 4000 : 3001,
+  () => console.log('Express server is running on localhost:3001'));
+
+module.exports = app;
