@@ -1,13 +1,17 @@
 import React from 'react';
+import CSS from './Stylesheet_Channel.css';
+
+
+
 
 export default function Channel(input) {		//maybe should be props in the input
 	this.name = input;
   return (
     <div className="Channel">
-     
-	  
-	  <button onClick = {click} >{this.name}</button>
-	  
+
+
+	  <button class="JoinChannelButn" onClick = {click} >{this.name}</button>
+
     </div>
   )
 }
@@ -15,8 +19,8 @@ export default function Channel(input) {		//maybe should be props in the input
 
 function click(){
 	alert("joining channel" );
-	
-	
+
+
 }
 
 

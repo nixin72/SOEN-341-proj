@@ -1,0 +1,26 @@
+
+
+#CreateChannelButton{
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: #0b7d07;
+  width:100%;
+  height: calc(2vw + 50px);
+}
+#CreateChannelButton:hover{
+  background: #0ca307;
+}
+
+.JoinChannelButn{
+  width:100%;
+  height: calc(2vw + 20px);
+
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: #0d65a3;
+}
+.JoinChannelButn:hover{
+background: #0f72b8;
+}
