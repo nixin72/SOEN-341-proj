@@ -20,7 +20,7 @@
     "dev": "npx run-p server start",
     "build": "react-scripts build",
     "test": "jest --runInBand --forceExit",
-    "doc": "npx oas generate swaggerBase.json > swagger.json",
+    "doc": "npx oas generate swaggerBase.json > swagger.json; node ./script/generate-docs.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
