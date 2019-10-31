@@ -1,0 +1,28 @@
+{
+  "users": {
+    "1": {
+      "username": "user1",
+      "channels": []
+    },
+    "2": {
+      "username": "user2",
+      "channels": []
+    }
+  },
+  "channels": {
+    "1": "general",
+    "2": "welcome"
+  },
+  "messages": {
+    "1": {
+      "1568249138232": {
+        "sender": "1",
+        "body": "test"
+      },
+      "1568249154188": {
+        "sender": "2",
+        "body": "test2"
+      }
+    }
+  }
+}
