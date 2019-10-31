@@ -5,10 +5,9 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <button onClick={newChannel}>  Create a new Channel </button>
-	  <div id ="channelButtons">
-	</div>
+      <div id="channelButtons">
+      </div>
     </div>
-	
   )
 }
 

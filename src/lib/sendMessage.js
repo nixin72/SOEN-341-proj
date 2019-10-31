@@ -1,3 +1,4 @@
+import axios from "axios";
 import messages from '../models/messages.json';
 
 export default function sendMessage(channel, sender, body) {
@@ -5,6 +6,10 @@ export default function sendMessage(channel, sender, body) {
   messages[channel][timestamp] = {
     sender, body
   }
+
+  axios.post("http://localhost:3001/messages", {
+    channel, sender, body, timestamp: Date.now()
+  }).then(data => console.log("received"))
 
   return messages;
 }

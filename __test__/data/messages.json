@@ -1,11 +1,11 @@
 {
-  "general": {
+  "test": {
     "1568249138232": {
-      "sender": "User1",
+      "sender": "testUser",
       "body": "test"
     },
     "1568249154188": {
-      "sender": "User2",
+      "sender": "testUser2",
       "body": "test2"
     }
   }
