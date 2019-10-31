@@ -1,4 +1,3 @@
-const messages = require("../../data/messages.json")
 const { agent } = require("../../")
 
 describe("GET /messages", () => {
@@ -8,7 +7,7 @@ describe("GET /messages", () => {
   })
 
   it("receives a list of messages from a channel", async () => {
-    const res = await agent.get("/messages?channel=test");
+    const res = await agent.get("/messages?channel=1");
     expect(Object.keys(res.body)).toHaveLength(2);
   })
 })
