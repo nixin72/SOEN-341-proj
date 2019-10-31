@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
 });
 
 /**
- * @oas [post] /channel Creates a new channel
+ * @oas [post] /channels Creates a new channel
  * description: "Receives data about a channel and creates a new one given the information supplied"
  * parameters:
  *   - (body) channel {String} The name of the channel to create
@@ -34,6 +34,21 @@ router.post("/", async (req, res) => {
       user.channels.append(thisId);
     }
   }
+
+  res.send("success");
+});
+
+/**
+ * @oas [post] /channels/join Makes a user join a channel
+ * description: "Receives a channel and userID and adds that channel to the user's channels"
+ * parameters:
+ *   - (body) channel {Integer:int32} The name of the channel to create
+ *   - (body) user {Integer:int32} Whether to automatically add everyone to the channel
+ */
+router.post("/", async (req, res) => {
+  const data = { ...req.body };
+
+  
 
   res.send("success");
 });
