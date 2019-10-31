@@ -24,7 +24,7 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   const data = { ...req.body };
 
-  const thisId = req.db.channelID++;
+  const thisId = Math.max(...Object.keys(req.db.channels)) + 1;
   req.db.channel[thisId] = {
     name: data.name,
   };
@@ -35,6 +35,7 @@ router.post("/", async (req, res) => {
     }
   }
 
+  req.db.write();
   res.send("success");
 });
 
@@ -48,8 +49,9 @@ router.post("/", async (req, res) => {
 router.post("/", async (req, res) => {
   const data = { ...req.body };
 
-  
+  req.db.users[data.user].channels.append(data.channel);
 
+  req.db.write();
   res.send("success");
 });
 

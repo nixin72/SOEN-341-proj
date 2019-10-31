@@ -6,6 +6,9 @@ app.use(bodyParser.json())
 
 app.use((req, res, next) => {
   req.db = db;
+  req.db.write = function () {
+    fs.writeFileSync("server/db/db.json", JSON.stringify(req.db));
+  }
   next();
 });
 
