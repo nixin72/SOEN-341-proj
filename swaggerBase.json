@@ -1,0 +1,14 @@
+{
+  "openapi": "3.0.0",
+  "x-api-id": "backend",
+  "info": {
+    "version": "0.1.0",
+    "title": "backend"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3001"
+    }
+  ],
+  "paths": {}
+}
