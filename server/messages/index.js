@@ -25,7 +25,7 @@ router.post("/", async (req, res) => {
   const msg = { ...req.body };
 
   req.db.messages[msg.channel][msg.timestamp] = {
-    sender: msg.sender,
+    sender: req.db.users[msg.sender].username,
     body: msg.body
   };
 
