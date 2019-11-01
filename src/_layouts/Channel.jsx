@@ -25,8 +25,9 @@ export default function Channel(input) {
 function click(input) {
   alert("joining channel" + input );
   getMessages(input);
+  //at the moment this global varible doesnt seem to be working
   setName(input);
-  //returnChat();
+  
 }
 
 

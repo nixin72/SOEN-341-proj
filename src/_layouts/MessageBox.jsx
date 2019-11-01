@@ -1,12 +1,15 @@
 import React from 'react';
 import sendMessage from '../lib/sendMessage'
+import getUserName from '../lib/vars.js'
+import returnChannelName from '../lib/vars.js'
+//channel and sender are 
 
 export default class MessageBox extends React.Component {
   send(evt) {
     if (evt.key === "Enter") {
       evt.preventDefault();
-      const channel = "general";
-      const sender = "nixin72";
+      var channel = getUserName();
+      var sender = returnChannelName();
       const body = evt.target.value;
 
       sendMessage(channel, sender, body);
