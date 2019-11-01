@@ -8,8 +8,8 @@ export default class MessageBox extends React.Component {
   send(evt) {
     if (evt.key === "Enter") {
       evt.preventDefault();
-      var channel = getUserName();
-      var sender = returnChannelName();
+      var channel = getUserName();            ///issues arising at this moment, trying to change from constant user and 
+      var sender = returnChannelName();       ///channel and switch to a dynamic current user/channel for the client
       const body = evt.target.value;
 
       sendMessage(channel, sender, body);
