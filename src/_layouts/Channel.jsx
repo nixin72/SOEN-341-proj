@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import getMessages from './Messages';
+import currentChannel from '../lib/vars.js'
+import setName from '../lib/vars.js'
+
+//setting up a global var for this
+//var channelName = "general";
 
 //channel creation function
 //object created by "newChannel.js
+
+//this function may need to create new json block
 export default function Channel(input) {
   this.name = input;
   return (
@@ -12,21 +20,17 @@ export default function Channel(input) {
   )
 }
 
+
 //onclick function for handling new button
-function click() {
-  alert("joining channel");
-  returnChat();
+function click(input) {
+  alert("joining channel" + input );
+  getMessages(input);
+  setName(input);
+  //returnChat();
 }
 
 
-//this function refreshes the chat
-function returnChat() {
-  ReactDOM.render(
-    <div className="chat">
-    </div>,
-    document.getElementById('messageArea')
-  )
-}
+
 
 
 
