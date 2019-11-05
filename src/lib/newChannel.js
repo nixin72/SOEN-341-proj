@@ -13,3 +13,8 @@ function newChannel() {
 }
 
 export default newChannel;
+
+
+
+////This needs to be changed from just pushing onto the channelArray
+////to doing with the axios post
