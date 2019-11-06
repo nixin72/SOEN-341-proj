@@ -24,6 +24,8 @@ export default function Channel(input) {
 //onclick function for handling new button
 function click(input) {
   alert("joining channel" + input );
+
+  //using the overall message function not the basic get messages one
   Messages(input);
   //at the moment this global varible doesnt seem to be working
   setName(input);
