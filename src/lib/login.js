@@ -13,18 +13,21 @@ function login() {
     let username = prompt("Please enter your username");
     let password = prompt("Please enter your password");
 
-    
 
     let output = checkUserPass(username,password);
 
     if(output == true){
         alert("password is valid");
-        
-       
     }
     else{
         alert("password is invaild please try again");
     }
+
+    ///////////////////////
+    //implement global users?
+    //so client side knows who is sending messages 
+    //////////////////////
+
 
 }
 
@@ -39,13 +42,14 @@ async function makeGetRequest(){
     let data = res.data;
     console.log(data)
 
+    return res;
 }
 
 
 function checkUserPass(user,pass){
 
     //makeGetRequest returns an json object that we can iterate through
-    var users = makeGetRequest();
+    let users = makeGetRequest();
     let out = false;
     for (var i = 0; i < user.length; i++){
         //looking for the uservalue saved in the file

@@ -48,7 +48,7 @@ async function makePostRequest(user,pass){
 function checkUserexist(user){
 
     //makeGetRequest returns an json object that we can iterate through
-    var users = makeGetRequest();
+    let users = makeGetRequest();
     let out = false;
     for (var i = 0; i < user.length; i++){
         //looking for the uservalue saved in the file
@@ -68,4 +68,5 @@ async function makeGetRequest(){
     let data = res.data;
     console.log(data)
 
+    return data;
 }
