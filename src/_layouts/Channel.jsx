@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import getMessages from './Messages';
+import Messages from './Messages';
 import currentChannel from '../lib/vars.js'
 import setName from '../lib/vars.js'
 
@@ -24,7 +24,7 @@ export default function Channel(input) {
 //onclick function for handling new button
 function click(input) {
   alert("joining channel" + input );
-  getMessages(input);
+  Messages(input);
   //at the moment this global varible doesnt seem to be working
   setName(input);
   

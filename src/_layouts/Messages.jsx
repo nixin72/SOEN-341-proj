@@ -6,6 +6,8 @@ import axios from 'axios';
 export default function Messages(props) {
   let messages = [];
 
+  //do we need the messages array
+
   setInterval(() => {
     messages = getMessages(props.channel);
     messages.then(data => {
