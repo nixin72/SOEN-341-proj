@@ -4,23 +4,24 @@
   color: white;
   border-radius: 4px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-  background: #0b7d07;
+  background: #0a183d;
   width:100%;
   height: calc(2vw + 50px);
+  font-family: verdana;
 }
 #CreateChannelButton:hover{
-  background: #0ca307;
+  background: #092570;
 }
 
 .JoinChannelButn{
   width:100%;
   height: calc(2vw + 20px);
-
+  font-family: verdana;
   color: white;
   border-radius: 4px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-  background: #0d65a3;
+  background: #14121c;
 }
 .JoinChannelButn:hover{
-background: #0f72b8;
+background: #252136;
 }
