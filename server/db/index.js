@@ -1,3 +1,3 @@
-const messages = require((process.env.MODE === "test" ? "../../__test__/data/" : "") + "./messages");
+const db = require((process.env.MODE === "test" ? "../../__test__/data/" : "") + "./db");
 
-module.exports = { messages };
+module.exports = db;

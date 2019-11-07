@@ -1,11 +1,19 @@
 const app = require('express')();
 const db = require("./db");
 const bodyParser = require('body-parser')
+const fs = require('fs');
 
 app.use(bodyParser.json())
 
 app.use((req, res, next) => {
   req.db = db;
+  req.db.write = function () {
+    fs.writeFile("server/db/db.json", JSON.stringify(req.db), function (err, data) {
+      if (err) {
+        console.log(err);
+      }
+    });
+  }
   next();
 });
 

@@ -5,8 +5,8 @@ export default class MessageBox extends React.Component {
   send(evt) {
     if (evt.key === "Enter") {
       evt.preventDefault();
-      const channel = "general";
-      const sender = "nixin72";
+      const channel = "1";
+      const sender = "1";
       const body = evt.target.value;
 
       sendMessage(channel, sender, body);

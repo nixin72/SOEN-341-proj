@@ -9,6 +9,7 @@ export default function Messages(props) {
   setInterval(() => {
     messages = getMessages(props.channel);
     messages.then(data => {
+      console.log(data.data);
       ReactDOM.render(
         <div className="messages">
           {createMessageComponents(data.data)}
@@ -25,7 +26,7 @@ export default function Messages(props) {
 }
 
 function getMessages(channel) {
-  return axios.get("http://localhost:3001/messages?channel=general&" + channel)
+  return axios.get("http://localhost:3001/messages?channel=1&" + channel)
 }
 
 function createMessageComponents(messages) {

@@ -6,7 +6,7 @@ const fs = require("fs");
  * @oas [get] /messages Get all messages for the channel
  * description: "List all messages that the user can view in this specific channel"
  * parameters:
- *   - (query) channel {Integer:int32} the channel from which to get messages
+ *   - (query) channel {Integer:int32} the ID for the channel from which to get messages
  */
 router.get("/", async (req, res) => {
   res.json(req.db.messages[req.query.channel]);
@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
  * @oas [post] /messages send a new message
  * description: "Receives data pertaining to a new message and saves in the database"
  * parameters:
- *   - (body) channel {String} The name of the channel the message was sent to
+ *   - (body) channel {Integer:int32} The id of the channel the message was sent to
  *   - (body) timestamp {String} The client timestamp of when the message was sent
  *   - (body) sender {Integer:int32} The id of the user that sent the message
  *   - (body) body {String} The content of the message itself
@@ -25,14 +25,11 @@ router.post("/", async (req, res) => {
   const msg = { ...req.body };
 
   req.db.messages[msg.channel][msg.timestamp] = {
-    sender: msg.sender,
+    sender: req.db.users[msg.sender].username,
     body: msg.body
   };
 
-  const messages = require("../db/messages.json");
-  messages[msg.channel][msg.timestamp] = { sender: msg.sender, body: msg.body };
-  fs.writeFileSync("server/db/messages.json", JSON.stringify(messages));
-
+  req.db.write();
   res.send("success");
 });
 
