@@ -26,8 +26,36 @@ $text: #dcddde;
 
   .sidebar {
     width: 20%;
-    overflow: scroll;
+    overflow: hidden;
     background: $bg-2;
+  }
+
+  .message {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .left {
+      display: flex;
+
+      .time {
+        color: $text-muted;
+        font-size: 10pt;
+      }
+
+      div { padding-right: 5px; }
+      .sender { color: #fff }
+      .body { color: #dcddde; }
+    }
+
+    .right {
+      margin-right: 15px;
+
+      * {
+        pointer-events: none;
+      }
+    }
   }
 
   .chat {
@@ -47,21 +75,8 @@ $text: #dcddde;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-
-      .message {
-        padding: 10px 0;
-        display: flex;
-        align-items: center;
-
-        .time {
-          color: $text-muted;
-          font-size: 10pt;
-        }
-
-        div { padding-right: 5px; }
-        .sender { color: #fff }
-        .body { color: #dcddde; }
-      }
+      overflow-x: hidden;
+      overflow-y: scroll;
     }
 
     .messageBox {
@@ -89,6 +104,23 @@ $text: #dcddde;
 
       div {
         padding: 10px 10px 6px 10px;
+      }
+    }
+  }
+
+  #pins {
+    width: 20%;
+    background: $bg-2;
+
+    .message {
+      border: thin solid gray;
+      margin: 15px;
+      border-radius: 5px;
+      padding: 5px;
+      height: fit-content;
+
+      .pin {
+        display: none;
       }
     }
   }

@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const fs = require("fs");
 
 /**
  * @oas [get] /messages Get all messages for the channel
@@ -23,6 +22,9 @@ router.get("/", async (req, res) => {
  */
 router.post("/", async (req, res) => {
   const msg = { ...req.body };
+  msg.timestamp = msg.timestamp || Date.now();
+  if (msg.sender === undefined || msg.channel === undefined || msg.body === undefined)
+    return res.status(400).send({ fail: "Invalid parameters passed." })
 
   req.db.messages[msg.channel][msg.timestamp] = {
     sender: req.db.users[msg.sender].username,
@@ -30,7 +32,7 @@ router.post("/", async (req, res) => {
   };
 
   req.db.write();
-  res.send("success");
+  res.send({ pass: "success" });
 });
 
 /**
@@ -50,6 +52,57 @@ router.get("/latest", async (req, res) => {
   }
 
   res.json({ update });
+});
+
+/**
+ * @oas [post] /messages/pin Pin a message in a channel
+ * description: Receives the ID of the channel and message IDs and adds the message ID to the list of pinned messages for that channel
+ * parameters:
+ *   - (body) channel {Integer:int32} The id of the channel to pin the message to
+ *   - (body) message {Integer:int32} The id of the message to pin
+ */
+router.post("/pins", async (req, res) => {
+  if (req.body.channel === undefined || req.body.message === undefined) {
+    return res.status(400).json({ fail: "Invalid parameters passed" })
+  }
+
+  try {
+    if (req.db.pinned[req.body.channel].length >= 50) {
+      return res.status(400).json({ fail: "max number of pins reached" })
+    }
+    else {
+      req.db.pinned[req.body.channel].push(req.body.message);
+    }
+  }
+  catch (err) {
+    return res.status(400).json({ fail: "Channel doesn't exist!" })
+  }
+
+  req.db.write();
+  res.send({ pass: "success" });
+});
+
+/**
+ * @oas [get] /messages/pins Gets all the pinned messages for a channel
+ * description: Returns all of the messages in a channel that have been pinned
+ * parameters:
+ *   - (query) channel {Integer:int32} The id of the channel to get the pinned messages from
+ */
+router.get("/pins", async (req, res) => {
+  if (req.query.channel === undefined)
+    return res.status(400).send({ fail: "Invalid parameters passed." })
+
+  try {
+    let messages = {};
+    req.db.pinned[req.query.channel].forEach(id => {
+      messages[id] = req.db.messages[req.query.channel][id];
+    });
+
+    res.json(messages)
+  }
+  catch (err) {
+    res.status(400).json({ fail: "" })
+  }
 });
 
 module.exports = router;

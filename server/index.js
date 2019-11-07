@@ -8,11 +8,13 @@ app.use(bodyParser.json())
 app.use((req, res, next) => {
   req.db = db;
   req.db.write = function () {
-    fs.writeFile("server/db/db.json", JSON.stringify(req.db), function (err, data) {
-      if (err) {
-        console.log(err);
-      }
-    });
+    if (process.env.MODE !== "test") {
+      fs.writeFile("server/db/db.json", JSON.stringify(req.db), function (err, data) {
+        if (err) {
+          console.log(err);
+        }
+      });
+    }
   }
   next();
 });
