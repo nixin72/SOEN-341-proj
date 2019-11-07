@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import CSS from './Stylesheet_Channel.css';
 
 //channel creation function
 //object created by "newChannel.js
@@ -7,14 +8,14 @@ export default function Channel(input) {
   this.name = input;
   return (
     <div className="Channel">
-      <button onClick={() => { click(this.name) }} >{this.name}</button>
+      <button class="JoinChannelButn" onClick={() => { click(this.name) }} >{this.name}</button>
     </div>
   )
 }
 
 //onclick function for handling new button
-function click() {
-  alert("joining channel");
+function click(name) {
+  alert("joining channel : " + name);
   returnChat();
 }
 
@@ -27,6 +28,3 @@ function returnChat() {
     document.getElementById('messageArea')
   )
 }
-
-
-
