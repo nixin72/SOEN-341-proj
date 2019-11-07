@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const fs = require("fs");
 
 /**
  * @oas [get] /messages Get all messages for the channel
@@ -30,7 +29,7 @@ router.post("/", async (req, res) => {
   };
 
   req.db.write();
-  res.send("success");
+  res.send({ pass: "success" });
 });
 
 /**
@@ -53,23 +52,45 @@ router.get("/latest", async (req, res) => {
 });
 
 /**
- * @oas [get] /messages/pin Pin a message in a channel
+ * @oas [post] /messages/pin Pin a message in a channel
  * description: Receives the ID of the channel and message IDs and adds the message ID to the list of pinned messages for that channel
  * parameters:
- *   - (query) channel {Integer:int32} The id of the channel to pin the message to
- *   - (query) message {Integer:int32} The id of the message to pin
+ *   - (body) channel {Integer:int32} The id of the channel to pin the message to
+ *   - (body) message {Integer:int32} The id of the message to pin
  */
-router.get("/pin", async (req, res) => {
-  let update = false;
-
-  if (req.db.messages[req.query.channel]) {
-    const serverLatest = Math.max(...Object.keys(req.db.messages[req.query.channel]));
-    const clientLatest = req.query.timestamp;
-    update = serverLatest === clientLatest;
+router.post("/pins", async (req, res) => {
+  try {
+    if (req.db.pinned.length >= 50) {
+      res.json({ fail: "max number of pins reached" })
+    }
+    else
+      req.db.pinned[req.body.channel].append(req.body.message);
+  }
+  catch (err) {
+    res.json({ fail: "Channel doesn't exist!" })
   }
 
-  res.json({ update });
+  res.send({ pass: "success" });
 });
 
+/**
+ * @oas [get] /messages/pins Gets all the pinned messages for a channel
+ * description: Returns all of the messages in a channel that have been pinned
+ * parameters:
+ *   - (query) channel {Integer:int32} The id of the channel to get the pinned messages from
+ */
+router.post("/pins", async (req, res) => {
+  try {
+    let messages = {};
+    Object.keys(req.db.pinned).forEach(id => {
+      messages[id] = req.db.messages[req.query.channel];
+    });
+
+    res.send(messages)
+  }
+  catch (err) {
+    res.json({ fail: "" })
+  }
+});
 
 module.exports = router;
