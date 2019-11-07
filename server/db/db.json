@@ -1,0 +1,24 @@
+{
+  "users": {
+    "1": {
+      "username": "user1",
+      "channels": []
+    },
+    "2": {
+      "username": "user2",
+      "channels": []
+    }
+  },
+  "channels": {
+    "1": "general",
+    "2": "welcome"
+  },
+  "messages": {
+    "1": {
+      "1572546578219": {
+        "sender": "user1",
+        "body": "asdf"
+      }
+    }
+  }
+}

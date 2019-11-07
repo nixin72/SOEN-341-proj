@@ -1,5 +1,16 @@
 # SOEN-341-proj
 
+Project members: Antoine Turcotte (AntoTurc), Ash Trudeau (A-Trudeau), Ewan McNeil (EwanMcNeil) and Philip Dumaresq (phdumaresq)
+
+The goal of this project is to create a messaging app similar to Slack or Discord, where users are able to message each other in different channels. They will be able to create new channels as well as join pre-existing channels. New features will gradually be implemented every few weeks to finally produce a robust and interactive application that allow interesting and useful tools based around text-based communication.
+
+## Language 
+The application will be built using the React framework, which is a combination of HTML and Javascript.
+
+## Testing
+The testing for this app will be done through github actions instead of TRAVIS CI with approval of Dr. Peter Chen.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -38,6 +49,11 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Project Testing with Github Actions
+This project will be tested with an alterative to TravisCI called Github Actions. Github actions is seemlessly integrated already into the github interface it is designed to automate github workflows. It offers very similar tools to TravisCI such as Matrix builds allowing concurrent jobs, Node.js support, and the ability to run in different containier/build environments including virtual machines.
+
+for further reading on this tool go to https://github.com/actions
 
 ## Learn More
 

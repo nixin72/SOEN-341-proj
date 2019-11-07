@@ -6,7 +6,7 @@ export default function Chat() {
   return (
     <div className="chat">
       <div id="messageArea">
-        <Messages />
+        <Messages channel="1" />
       </div>
       <div>
         <hr />

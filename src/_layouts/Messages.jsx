@@ -1,30 +1,38 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Message from './Message';
 import axios from 'axios';
-import messages from '../models/messages.json'
 
-export default class Messages extends React.Component {
-  createMessageComponents(messages) {
-    return Object.keys(messages["general"]).map(m =>
-      <Message time={ (d =>
-        `${d.getHours()}:${d.getMinutes()}`)(new Date(parseInt(m))) }
-               sender={ messages["general"][m].sender }
-               body={ messages["general"][m].body }/>)
-  }
+export default function Messages(props) {
+  let messages = [];
 
-  getMessages() {
-    // return axios.get("http://localhost:3001/messages")
-    //   .then(m => createMessageComponents(m));
+  setInterval(() => {
+    messages = getMessages(props.channel);
+    messages.then(data => {
+      console.log(data.data);
+      ReactDOM.render(
+        <div className="messages">
+          {createMessageComponents(data.data)}
+        </div>,
+        document.getElementById('messageArea')
+      )
+    })
+  }, 1000)
 
-    return this.createMessageComponents(messages);
+  return (
+    <div className="messages">
+    </div>
+  )
+}
 
-  }
+function getMessages(channel) {
+  return axios.get("http://localhost:3001/messages?channel=1&" + channel)
+}
 
-  render () {
-    return (
-      <div className="messages">
-      { this.getMessages() }
-      </div>
-    );
-  }
+function createMessageComponents(messages) {
+  return Object.keys(messages).map(m =>
+    <Message time={(d =>
+      `${d.getHours()}:${d.getMinutes()}`)(new Date(parseInt(m)))}
+      sender={messages[m].sender}
+      body={messages[m].body} />)
 }
