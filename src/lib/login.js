@@ -38,7 +38,7 @@ export default login;
 async function makeGetRequest(){
 
 
-    let res = await axios.get('http://localhost:3000/users/');
+    let res = await axios.get('http://localhost:3001/users/');
     let data = res.data;
     console.log(data)
 

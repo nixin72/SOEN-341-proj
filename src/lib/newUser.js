@@ -40,7 +40,7 @@ async function makePostRequest(user,pass){
         password : pass
     }
 
-    let res = await axios.post('http://localhost:3000/users/',params);
+    let res = await axios.post('http://localhost:3001/users/',params);
 
     console.log(res.data);
 
@@ -64,7 +64,7 @@ return out;
 async function makeGetRequest(){
 
 
-    let res = await axios.get('http://localhost:3000/users/');
+    let res = await axios.get('http://localhost:3001/users/');
     let data = res.data;
     console.log(data)
 
