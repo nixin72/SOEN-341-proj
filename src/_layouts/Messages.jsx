@@ -9,7 +9,6 @@ export default function Messages(props) {
   setInterval(() => {
     messages = getMessages(props.channel);
     messages.then(data => {
-      console.log(data.data);
       ReactDOM.render(
         <div className="messages">
           {createMessageComponents(data.data)}
@@ -31,7 +30,7 @@ function getMessages(channel) {
 
 function createMessageComponents(messages) {
   return Object.keys(messages).map(m =>
-    <Message time={(d =>
+    <Message key={m} time={(d =>
       `${d.getHours()}:${d.getMinutes()}`)(new Date(parseInt(m)))}
       sender={messages[m].sender}
       body={messages[m].body} />)
