@@ -22,6 +22,9 @@ router.get("/", async (req, res) => {
  */
 router.post("/", async (req, res) => {
   const msg = { ...req.body };
+  msg.timestamp = msg.timestamp || Date.now();
+  if (msg.sender === undefined || msg.channel === undefined || msg.body === undefined)
+    return res.status(400).send({ fail: "Invalid parameters passed." })
 
   req.db.messages[msg.channel][msg.timestamp] = {
     sender: req.db.users[msg.sender].username,
@@ -59,17 +62,23 @@ router.get("/latest", async (req, res) => {
  *   - (body) message {Integer:int32} The id of the message to pin
  */
 router.post("/pins", async (req, res) => {
-  try {
-    if (req.db.pinned.length >= 50) {
-      res.json({ fail: "max number of pins reached" })
-    }
-    else
-      req.db.pinned[req.body.channel].push(req.body.message);
-  }
-  catch (err) {
-    res.json({ fail: "Channel doesn't exist!" })
+  if (req.body.channel === undefined || req.body.message === undefined) {
+    return res.status(400).json({ fail: "Invalid parameters passed" })
   }
 
+  try {
+    if (req.db.pinned[req.body.channel].length >= 50) {
+      return res.status(400).json({ fail: "max number of pins reached" })
+    }
+    else {
+      req.db.pinned[req.body.channel].push(req.body.message);
+    }
+  }
+  catch (err) {
+    return res.status(400).json({ fail: "Channel doesn't exist!" })
+  }
+
+  req.db.write();
   res.send({ pass: "success" });
 });
 
@@ -80,6 +89,9 @@ router.post("/pins", async (req, res) => {
  *   - (query) channel {Integer:int32} The id of the channel to get the pinned messages from
  */
 router.get("/pins", async (req, res) => {
+  if (req.query.channel === undefined)
+    return res.status(400).send({ fail: "Invalid parameters passed." })
+
   try {
     let messages = {};
     req.db.pinned[req.query.channel].forEach(id => {
@@ -89,7 +101,7 @@ router.get("/pins", async (req, res) => {
     res.json(messages)
   }
   catch (err) {
-    res.json({ fail: "" })
+    res.status(400).json({ fail: "" })
   }
 });
 
