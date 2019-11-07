@@ -17,8 +17,8 @@ export default function Channel(input) {		//maybe should be props in the input
 }
 
 
-function click(){
-	alert("joining channel" );
+function click(name){
+	alert("joining channel : " + name );
 
 
 }
