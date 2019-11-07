@@ -1,8 +1,9 @@
 import React from 'react';
+import axios from 'axios';
 
 export default function Message(props) {
   return (
-    <div className="message" key={props.key}>
+    <div className="message" id={props.id} >
       <div className="left">
         <div className="time">{props.time}</div>
         <div className="sender">{props.sender}</div>
@@ -19,5 +20,11 @@ export default function Message(props) {
 
 function pinMessage(event) {
   let t = event.target;
-  console.log(t.parentElement)
+  console.log(t.parentElement.id)
+  axios.post("http://localhost:3001/messages/pins", {
+    channel: 1,
+    message: t.parentElement.id
+  })
 }
+
+
