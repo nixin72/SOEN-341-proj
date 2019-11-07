@@ -52,4 +52,24 @@ router.get("/latest", async (req, res) => {
   res.json({ update });
 });
 
+/**
+ * @oas [get] /messages/pin Pin a message in a channel
+ * description: Receives the ID of the channel and message IDs and adds the message ID to the list of pinned messages for that channel
+ * parameters:
+ *   - (query) channel {Integer:int32} The id of the channel to pin the message to
+ *   - (query) message {Integer:int32} The id of the message to pin
+ */
+router.get("/pin", async (req, res) => {
+  let update = false;
+
+  if (req.db.messages[req.query.channel]) {
+    const serverLatest = Math.max(...Object.keys(req.db.messages[req.query.channel]));
+    const clientLatest = req.query.timestamp;
+    update = serverLatest === clientLatest;
+  }
+
+  res.json({ update });
+});
+
+
 module.exports = router;

@@ -29,6 +29,8 @@ router.post("/", async (req, res) => {
     name: data.name,
   };
 
+  req.db.pinned[thisId] = [];
+
   if (!data.private) {
     for (let user of req.db.users) {
       user.channels.append(thisId);
