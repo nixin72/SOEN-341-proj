@@ -64,7 +64,7 @@ router.post("/pins", async (req, res) => {
       res.json({ fail: "max number of pins reached" })
     }
     else
-      req.db.pinned[req.body.channel].append(req.body.message);
+      req.db.pinned[req.body.channel].push(req.body.message);
   }
   catch (err) {
     res.json({ fail: "Channel doesn't exist!" })
