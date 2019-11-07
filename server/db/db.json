@@ -14,13 +14,80 @@
     "2": "welcome"
   },
   "pinned": {
-    "1": []
+    "1": [
+      "1572546578219",
+      "1573098867028"
+    ]
   },
   "messages": {
     "1": {
       "1572546578219": {
         "sender": "user1",
         "body": "asdf"
+      },
+      "1573097980188": {
+        "sender": "user1",
+        "body": "asdf"
+      },
+      "1573097980508": {
+        "sender": "user1",
+        "body": "asdf"
+      },
+      "1573097980781": {
+        "sender": "user1",
+        "body": "asdf"
+      },
+      "1573097980965": {
+        "sender": "user1",
+        "body": "a"
+      },
+      "1573097981141": {
+        "sender": "user1",
+        "body": "sdf"
+      },
+      "1573097981318": {
+        "sender": "user1",
+        "body": "asd"
+      },
+      "1573097981475": {
+        "sender": "user1",
+        "body": "f"
+      },
+      "1573097981625": {
+        "sender": "user1",
+        "body": "asd"
+      },
+      "1573097981780": {
+        "sender": "user1",
+        "body": "f"
+      },
+      "1573097981916": {
+        "sender": "user1",
+        "body": "asd"
+      },
+      "1573097982052": {
+        "sender": "user1",
+        "body": "f"
+      },
+      "1573097982205": {
+        "sender": "user1",
+        "body": "asd"
+      },
+      "1573097982340": {
+        "sender": "user1",
+        "body": "f"
+      },
+      "1573097982478": {
+        "sender": "user1",
+        "body": "asdf"
+      },
+      "1573097982627": {
+        "sender": "user1",
+        "body": "a"
+      },
+      "1573098867028": {
+        "sender": "user1",
+        "body": "adsfasdfasdfasdfasdfasjdfklasjdfljas;fjalkfjas;dlfjas;flkjadfasdklfjhasdf"
       }
     }
   }
