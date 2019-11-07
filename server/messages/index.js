@@ -79,14 +79,14 @@ router.post("/pins", async (req, res) => {
  * parameters:
  *   - (query) channel {Integer:int32} The id of the channel to get the pinned messages from
  */
-router.post("/pins", async (req, res) => {
+router.get("/pins", async (req, res) => {
   try {
     let messages = {};
-    Object.keys(req.db.pinned).forEach(id => {
-      messages[id] = req.db.messages[req.query.channel];
+    req.db.pinned[req.query.channel].forEach(id => {
+      messages[id] = req.db.messages[req.query.channel][id];
     });
 
-    res.send(messages)
+    res.json(messages)
   }
   catch (err) {
     res.json({ fail: "" })
