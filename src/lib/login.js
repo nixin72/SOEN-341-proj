@@ -18,53 +18,30 @@ function login() {
 
     if(output == true){
         alert("password is valid");
+        return username;
+        //returns username back to user.jsx so client side knows where it is
     }
     else{
-        alert("password is invaild please try again");
+        alert("password or username is invaild please try again");
     }
-
-    ///////////////////////
-    //implement global users?
-    //so client side knows who is sending messages 
-    //////////////////////
-
-
 }
 
 export default login;
 
 
-//for the moment just doing a get users check 
-async function makeGetRequest(){
-    return axios.get("http://localhost:3001/users")
-}
-
 
 function checkUserPass(user,pass){
 
-    //makeGetRequest returns an json object that we can iterate through
-    let users = makeGetRequest();
-
-    users.then((response) => {
-
-
-
-
-
-
-    });
-
-
-
-
-    let out = false;
-    
-    for (var i = 0; i < user.length; i++){
-        //looking for the uservalue saved in the file
-        if (users[i].username == user && users[i].password == pass){
-           out = true;
+    axios.get('http://localhost:3001/users/' + user)
+    .then((response) => {
+        if(response.password == pass){
+            return true;
         }
-      }
-
-return out;
+        else{
+            return false;
+        }
+    }, (error) => {
+        
+        return false;
+    });
 }

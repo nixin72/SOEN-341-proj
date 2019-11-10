@@ -15,6 +15,7 @@ function newUser() {
         alert("username is unique");
         //creates local user to pass to messages when sent
         makePostRequest(username,password);
+        return username;
     }
     else{
        alert("username in use please try again");  
@@ -42,7 +43,7 @@ async function checkUserexist(user){
     //function is used to see if there is a user already saved in database
     //if it returns one it will just return true
     //if not if will return false and allow user to create account
-    let output = true;
+    let output = null;
     axios.get('http://localhost:3001/users/' + user)
     .then((response) => {
         output = true;
