@@ -11,7 +11,7 @@ export default function Chat() {
       <div>
         <hr />
       </div>
-      <MessageBox />
+      <MessageBox channel="1" />
     </div>
   );
 }

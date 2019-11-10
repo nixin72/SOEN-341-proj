@@ -1,13 +1,25 @@
 import React from 'react';
 import sendMessage from '../lib/sendMessage'
+import Chat from '../_layouts/Chat'
 
+var currentChannel = 1;
 export default class MessageBox extends React.Component {
+
+
+  componentWillMount(){
+    currentChannel = this.props.channel;
+  }
   send(evt) {
     if (evt.key === "Enter") {
       evt.preventDefault();
-      const channel = "1";
+      console.log("Channel is : ");
+
+      console.log(currentChannel);
+      const channel = currentChannel;
       const sender = "1";
       const body = evt.target.value;
+
+
 
       sendMessage(channel, sender, body);
 
@@ -16,6 +28,7 @@ export default class MessageBox extends React.Component {
   }
 
   render() {
+
     return (
       <div className="messageBox">
         <textarea id="sendMsg"
