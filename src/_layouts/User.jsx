@@ -7,7 +7,15 @@ import newUser from "../lib/newUser.js"
 
 
 export default function User(input) {
-    this.userName = input;
+
+    if(input == null){
+      return;
+    }
+    else{
+
+      this.userName = input;
+    }
+   
   }
 
 
