@@ -1,6 +1,4 @@
-import ReactDOM from 'react-dom';
-import User from '../_layouts/Channel.jsx'
-import React from 'react';
+
 
 const axios = require('axios');
 
@@ -44,7 +42,7 @@ async function checkUserexist(user){
     //if it returns one it will just return true
     //if not if will return false and allow user to create account
     let output = null;
-    axios.get('http://localhost:3001/users/' + user)
+    axios.get('http://localhost:3001/users/?userName=' + user)
     .then((response) => {
         output = true;
         return output;

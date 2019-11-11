@@ -1,6 +1,4 @@
-import ReactDOM from 'react-dom';
-import User from '../_layouts/User.jsx'
-import React from 'react';
+
 
 //posting a new user code inspired by axios tutorial on subject
 
@@ -32,9 +30,9 @@ export default login;
 
 function checkUserPass(user,pass){
 
-    axios.get('http://localhost:3001/users/' + user)
+    axios.get('http://localhost:3001/users/?userName=' + user)
     .then((response) => {
-        if(response.password == pass){
+        if(response.data.password == pass){
             return true;
         }
         else{
