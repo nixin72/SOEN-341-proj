@@ -19,10 +19,6 @@ export default function User(input) {
   }
 
 
-///////
-//here errors need to be thrown if null
-///////
-
 export function userLogin(){
     User(login());
 }
