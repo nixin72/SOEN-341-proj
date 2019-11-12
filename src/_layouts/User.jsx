@@ -1,7 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import login from '../lib/login.js'
-import newUser from "../lib/newUser.js"
+
 import sendUser  from "../lib/sendUser.js"
 
 
@@ -23,18 +20,23 @@ export function getUser(){
 }
 
 //functions to login and create account
+//tags "login" and "create" are sent as tags for serverside functions
 
 export function Login(){
 let username = prompt("Please enter your username");
 let password = prompt("Please enter your password");
-sendUser(username, password, login, loginCall(reponse));
-
+sendUser(username, password, "login", loginCall());
 }
+
+
+///I think I had callback setup incorrectly changing to remove
+///the "response" within it
+
 
 export function createAccount(){
   let username = prompt("Please enter your new username");
   let password = prompt("Please enter your new password");
-  sendUser(username, password, create, accountCall(response));
+  sendUser(username, password, "create", accountCall());
 }
 
 

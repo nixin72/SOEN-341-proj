@@ -10,7 +10,7 @@ import axios from "axios";
 //asyncronus calls depending on login or create acount deals differently
 
 
-export default function sendUser(username, password, tag, callback){
+export default function sendUser(user, pass, tag, callback){
 axios.post("http://localhost:3001/users", {
     username : user,
     password : pass,
