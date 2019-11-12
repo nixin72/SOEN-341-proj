@@ -105,4 +105,42 @@ router.get("/pins", async (req, res) => {
   }
 });
 
+
+
+router.post("/users", async (req, res) => {
+ 
+ 
+
+  //login request
+  if (req.body.tag === "login") {
+   let fetch = req.db.users[req.query.username];    //not quite sure how db works
+   if( fetch.password == req.query.password){     
+    res.send({ pass: "success" });                  //and if I can pass things back through                        
+   }                                                //with res.send
+   else{
+    res.send({ pass: "fail"});
+   }
+  }
+
+
+  //account creation request
+  if (req.body.tag === "create"){
+
+    let fetch = req.db.users[req.query.username];
+    if( fetch == ){
+    return res.send({ pass: "fail username exists"});
+    }
+
+
+
+  }
+
+
+  req.db.write();
+  res.send({ pass: "success" });
+});
+
+//Sure that this isn't the right way to read in the json file
+//but dont know how to use the .db stff 
+
 module.exports = router;
