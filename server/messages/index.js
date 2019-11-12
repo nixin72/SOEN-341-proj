@@ -118,7 +118,7 @@ router.post("/users", async (req, res) => {
     res.send({ pass: "success" });                  //and if I can pass things back through                        
    }                                                //with res.send
    else{
-    res.send({ pass: "fail"});
+    res.send({ pass: "fail password incorrect"});
    }
   }
 
@@ -126,18 +126,19 @@ router.post("/users", async (req, res) => {
   //account creation request
   if (req.body.tag === "create"){
 
-    let fetch = req.db.users[req.query.username];
-    if( fetch == ){
-    return res.send({ pass: "fail username exists"});
+    let fetch = req.db.users[req.query.username];   //dont think this works as a check come back to
+    if( fetch == null ){
+
+      req.db.users[req.body.username] = {           //this is accessing not creating fix this
+        password: req.body.passwordl
+      };
     }
-
-
+    else{
+      res.send({pass: "fail username in use"})
+    }
+    req.db.write();
 
   }
-
-
-  req.db.write();
-  res.send({ pass: "success" });
 });
 
 //Sure that this isn't the right way to read in the json file
