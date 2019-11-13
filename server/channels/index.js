@@ -23,22 +23,22 @@ router.get("/", async (req, res) => {
  */
 router.post("/", async (req, res) => {
   const data = { ...req.body };
-
   const thisId = Math.max(...Object.keys(req.db.channels)) + 1;
-  req.db.channel[thisId] = {
+  req.db.channels[thisId] = {
     name: data.name,
   };
 
   req.db.pinned[thisId] = [];
 
-  if (!data.private) {
-    for (let user of req.db.users) {
-      user.channels.append(thisId);
-    }
-  }
+  //Comment since not in use currently.
+  // if (!data.private) {
+  //   for (let user of req.db.users) {
+  //     user.channels.append(thisId);
+  //   }
+  // }
 
   req.db.write();
-  res.send("success");
+  res.send({ pass: "success" });
 });
 
 /**
@@ -58,5 +58,3 @@ router.post("/", async (req, res) => {
 });
 
 module.exports = router;
-
-
