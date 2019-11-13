@@ -2,13 +2,21 @@
 const axios = require('axios');
 
 
+///basic setup for setting up client user
+let globalUser = "default";
+
 export default function User(input) {
- 
+ globalUser = input;
+
+}
+export function getUser(){
+
+  return globalUser;
 }
 
-//functions to login and create account
-//tags "login" and "create" are sent as tags for serverside functions
 
+
+///login function
 
  export function Login(){
 
@@ -17,24 +25,34 @@ export default function User(input) {
 
   let output = loginRequest(username,password);
 
-  //following layout in get messages
-  //but I feel this is just as unsecure as before?
-  //the check with password does happen server side 
-  //but actual client side login happens here
+  //following layout seen in get messages
+  
   output.then(response => {
-
-    alert(response.data.output);
-
+    if (response.pass == "success"){
+      //setting the current username
+      User(username);
+    }
+    else(
+      alert("password or username was incorrect please try agin")
+    )
   })
  }
 
- //im not sure about this implementation following how messages are setup
- //but unsure if the url given matters (userlogin and usercreate) dont acutally exist
- //but on the server side I can create differnece requests for them
+
+//function to create account 
+export function createAccount(){
+  let user = prompt("Please enter your new username");
+  let pass = prompt("Please enter your new password");
+  accountRequest(user, pass);
+}
 
 
 
- function accountRequest(user,pass ){
+
+///axios calls to the server
+
+
+function accountRequest(user,pass ){
   axios.post("http://localhost:3001/users",{
     username: user,
     password: pass
@@ -43,20 +61,16 @@ export default function User(input) {
 
 
 
-export function createAccount(){
-  let user = prompt("Please enter your new username");
-  let pass = prompt("Please enter your new password");
-  accountRequest(user, pass);
-}
 
+///need callbacks for asyc calling?
+///was reading info on this and needs to be called
+///inside sensitivty list
 
-////need callbacks for asyc calling
 function loginRequest(user, pass ){
-  return axios.get("http://localhost:3001/userlogin",{
-    params:{
+ return axios.get("http://localhost:3001/users",{
     username: user,
     password: pass
-  }} )
+  }).then( data => alert("test"))
  }
 
 
