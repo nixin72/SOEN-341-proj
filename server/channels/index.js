@@ -25,7 +25,7 @@ router.post("/", async (req, res) => {
   const data = { ...req.body };
   const thisId = Math.max(...Object.keys(req.db.channels)) + 1;
   req.db.channels[thisId] = {
-    name: data.name,
+    name: data.channelName,
   };
 
   req.db.pinned[thisId] = [];
