@@ -6,6 +6,8 @@ const fs = require("fs");
 
 //sending a user to the database
 //have not implemented checking current password
+//post are for creating users and then 
+//get are for logging in requests 
 
 router.post("/", async (req, res) => {
     const data = { ...req.body };
@@ -18,23 +20,22 @@ router.post("/", async (req, res) => {
 });
 
 
+
+///returning strings just for successful or failure login attempts
   
 router.get('/', function (req, res) {
+  const data = {...req.body};
 
-  const date = {...req.body};
-
-  if(req.db.users[data.user].password == data.password{
-  
+  if(req.db.users[data.user].password == data.password){
     res.send({ pass: "success"})
-
   }
   else{
 
     res.send({ pass: "fail"})
 
   }
-    res.send('hello world')
-  })
+
+  });
 
 
   module.exports = router;
