@@ -1,15 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const fs = require("fs");
 
 
 
-//sending a user to the database
-//have not implemented checking current password
-//post are for creating users and then 
-//get are for logging in requests 
-
-router.post("/", async (req, res) => {
+router.post("/", async (req, res) => {  //recieves creation of a user, havent impelmeted checking current users 
     const data = { ...req.body };
   
    req.db.users[data.username] = {
@@ -20,24 +14,17 @@ router.post("/", async (req, res) => {
 });
 
 
-
 ///returning strings just for successful or failure login attempts
-  
 router.post('/login', function (req, res) {
   const data = {...req.body };
 
-  //let userServer = req.db.users[req.query.username];
-  //req.db.users[data.user]
 
   if(req.db.users[data.username].password == data.password){
    res.send({ pass: "success"})
     }
   else{
-    res.send({ pass: "fail"})
-  }
+    res.status(401).send({ fail: "Incorrect password"})
+      }
+});
   
-  //res.send({ pass: req.db.users[data.username].password})
-  });
-
-
   module.exports = router;

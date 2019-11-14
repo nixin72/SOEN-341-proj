@@ -1,13 +1,8 @@
 import React from 'react';
 import sendMessage from '../lib/sendMessage'
-import getUser from './User.jsx'
-
-
-
+import getUser from '../lib/User.js'
 
 export default class MessageBox extends React.Component {
-
-
   send(evt) {
     if (evt.key === "Enter") {
       evt.preventDefault();

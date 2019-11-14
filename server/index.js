@@ -35,7 +35,6 @@ app.use('/messages', require('./messages'));
 app.use('/channels', require('./channels'));
 app.use('/users', require('./users'));
 
-
 app.listen(process.env.MODE === "test" ? 4000 : 3001,
   () => console.log('Express server is running on localhost:3001'));
 

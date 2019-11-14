@@ -33,8 +33,7 @@ router.post("/", async (req, res) => {
   };
 
   req.db.write();
- 
-  
+  res.send({pass: "success"})
 });
 
 /**

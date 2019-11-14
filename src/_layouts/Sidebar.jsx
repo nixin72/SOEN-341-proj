@@ -1,6 +1,6 @@
 import React from 'react';
 import newChannel from '../lib/newChannel.js'
-import {Login,createAccount}  from  './User.jsx'
+import {Login,createAccount}  from  '../lib/User.js'
 
 //only importing user here to control both login
 //and create account
