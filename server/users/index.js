@@ -10,7 +10,7 @@ router.post("/", async (req, res) => {  //recieves creation of a user, havent im
       password: data.password
     };
    req.db.write();
-   res.send({ pass: data.password });
+   res.send({ pass: "success" });
 });
 
 
