@@ -34,6 +34,7 @@ router.post("/", async (req, res) => {
   req.db.channels[thisId] = {
     name: data.channelName,
   };
+  
   var timestamp = Date.now();
   var welcomeMsg = "Welcome to the new Channel : " + data.channelName;
 
@@ -43,7 +44,7 @@ router.post("/", async (req, res) => {
 
   //Writing a first message for test purposes. Could be removed later on.
   req.db.messages[thisId][timestamp] = {
-    sender: "server",
+    sender: "server : ",
     body: welcomeMsg
   };
 
