@@ -27,12 +27,13 @@ router.post("/", async (req, res) => {
     return res.status(400).send({ fail: "Invalid parameters passed." })
 
   req.db.messages[msg.channel][msg.timestamp] = {
-    sender: req.db.users[msg.sender].username,
+    //sender: req.db.users[msg.sender].username,
+    sender: msg.sender,
     body: msg.body
   };
 
   req.db.write();
-  res.send({ pass: "success" });
+  res.send({pass: "success"})
 });
 
 /**
