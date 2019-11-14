@@ -17,4 +17,5 @@ function newChannel() {
 
 }
 
+export {channelArray};
 export default newChannel;
