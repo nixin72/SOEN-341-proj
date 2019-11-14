@@ -1,6 +1,6 @@
 import React from 'react';
 import sendMessage from '../lib/sendMessage'
-
+import getUser from './User.jsx'
 
 
 
@@ -12,7 +12,7 @@ export default class MessageBox extends React.Component {
     if (evt.key === "Enter") {
       evt.preventDefault();
       const channel = "1";
-      let sender = "1";
+      let sender = getUser();
       const body = evt.target.value;
 
       sendMessage(channel, sender, body);

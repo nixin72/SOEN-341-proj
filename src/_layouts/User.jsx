@@ -5,12 +5,13 @@ const axios = require('axios');
 ///basic setup for setting up client user
 let globalUser = "default";
 
-export default function User(input) {
+export function User(input) {
  globalUser = input;
 
+ alert("global user is now set to: " + globalUser);
 }
-export function getUser(){
 
+export default function getUser(){
   return globalUser;
 }
 
@@ -26,18 +27,7 @@ export function getUser(){
   //let output = 
   loginRequest(username,password);
 
-  //following layout seen in get messages
   
-  //output.then(response => {
-  //  if (response.pass == "success"){
-  //    alert("is correct");
-      //setting the current username
-  //    User(username);
-  //  }
-  //  else(
-  //    alert("password or username was incorrect please try agin")
-  //  )
-  //})
  }
 
 
@@ -58,7 +48,7 @@ function accountRequest(user,pass){
   axios.post("http://localhost:3001/users",{
     username: user,
     password: pass
-  }).then( data => alert(data.data.pass))
+  }).then( data => alert("account has been created, please press login to use newly created account"))
  }
 
 
@@ -72,9 +62,17 @@ function loginRequest(user,pass){
  axios.post("http://localhost:3001/users/login",{
     username: user,
     password: pass
-  }).then( data => alert(data.data.pass))
- }
+  }).then( data =>{
 
+    if(data.data.pass === "success" ){
+      alert("Password is valid");
+      User(user); //setting username
+    }
+    else{
+      alert("please enter vaild password");
+    }
+  })
+ }
 
 
 
