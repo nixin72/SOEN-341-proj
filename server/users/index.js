@@ -16,25 +16,27 @@ router.post("/", async (req, res) => {
       password: data.password
     };
    req.db.write();
-   res.send({ pass: "success" });
+   res.send({ pass: data.password });
 });
 
 
 
 ///returning strings just for successful or failure login attempts
   
-router.get('/', function (req, res) {
-  const data = {...req.body};
+router.post('/login', function (req, res) {
+  const data = {...req.body };
 
-  if(req.db.users[data.user].password == data.password){
-    res.send({ pass: "success"})
-  }
+  //let userServer = req.db.users[req.query.username];
+  //req.db.users[data.user]
+
+  if(req.db.users[data.username].password == data.password){
+   res.send({ pass: "success"})
+    }
   else{
-
     res.send({ pass: "fail"})
-
   }
-
+  
+  //res.send({ pass: req.db.users[data.username].password})
   });
 
 

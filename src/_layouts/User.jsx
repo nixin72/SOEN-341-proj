@@ -23,19 +23,21 @@ export function getUser(){
   let username = prompt("Please enter your username");
   let password = prompt("Please enter your password");
 
-  let output = loginRequest(username,password);
+  //let output = 
+  loginRequest(username,password);
 
   //following layout seen in get messages
   
-  output.then(response => {
-    if (response.pass == "success"){
+  //output.then(response => {
+  //  if (response.pass == "success"){
+  //    alert("is correct");
       //setting the current username
-      User(username);
-    }
-    else(
-      alert("password or username was incorrect please try agin")
-    )
-  })
+  //    User(username);
+  //  }
+  //  else(
+  //    alert("password or username was incorrect please try agin")
+  //  )
+  //})
  }
 
 
@@ -52,11 +54,11 @@ export function createAccount(){
 ///axios calls to the server
 
 
-function accountRequest(user,pass ){
+function accountRequest(user,pass){
   axios.post("http://localhost:3001/users",{
     username: user,
     password: pass
-  }).then( data => alert("test"))
+  }).then( data => alert(data.data.pass))
  }
 
 
@@ -66,11 +68,11 @@ function accountRequest(user,pass ){
 ///was reading info on this and needs to be called
 ///inside sensitivty list
 
-function loginRequest(user, pass ){
- return axios.get("http://localhost:3001/users",{
+function loginRequest(user,pass){
+ axios.post("http://localhost:3001/users/login",{
     username: user,
     password: pass
-  }).then( data => alert("test"))
+  }).then( data => alert(data.data.pass))
  }
 
 
