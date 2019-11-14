@@ -2,12 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Message from './Message';
 import axios from 'axios';
+import {currentChatID} from './Channel';
 
 export default function Messages(props) {
   let messages = [];
 
   setInterval(() => {
-    messages = getMessages(props.channel);
+
+    //messages = getMessages(props.channel);
+    messages = getMessages(currentChatID);
     messages.then(data => {
       ReactDOM.render(
         <div className="messages">
@@ -25,7 +28,8 @@ export default function Messages(props) {
 }
 
 function getMessages(channel) {
-  return axios.get("http://localhost:3001/messages?channel=1&" + channel)
+  console.log("getting msg from " + channel);
+  return axios.get("http://localhost:3001/messages?channel="+ channel);
 }
 
 function createMessageComponents(messages) {

@@ -1,11 +1,12 @@
 import React from 'react';
 import sendMessage from '../lib/sendMessage'
+import {currentChatID} from './Channel.jsx'
 
 export default class MessageBox extends React.Component {
   send(evt) {
     if (evt.key === "Enter") {
       evt.preventDefault();
-      const channel = "1";
+      const channel = currentChatID;
       const sender = "1";
       const body = evt.target.value;
 
