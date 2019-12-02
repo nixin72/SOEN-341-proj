@@ -13,6 +13,21 @@
   background: #092570;
 }
 
+
+.AccountButton{
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: #0a2d3d;
+  width:100%;
+  height: calc(2vw + 50px);
+  font-family: verdana;
+}
+.AccountButton:hover{
+  background: #0c4661;
+}
+
+
 .JoinChannelButn{
   width:100%;
   height: calc(2vw + 20px);
