@@ -25,7 +25,7 @@ export default class MessageBox extends React.Component {
           rows="1" tabIndex="1"
           placeholder="Message #{{ channelName }}"></textarea>
         <div>
-          <img src="https://www.sccpre.cat/mypng/full/77-774992_black-shape-paper-plane-paper-airplane-icon-instagram.png"
+          <img src="https://i.ibb.co/FXCLcH8/pinpng-com-paper-plane-png-763407.png"
             width="30"
             height="30"
             alt="send Button" />
